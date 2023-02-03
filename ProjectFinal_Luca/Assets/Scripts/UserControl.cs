@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+//using UnityEngine.InputSystem;
 
 public class UserControl : MonoBehaviour
 {
@@ -18,11 +18,11 @@ public class UserControl : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    public void OnMove(InputAction.CallbackContext context)
-    {
-        Vector2 move = context.ReadValue<Vector2>();
-        h = move.x;
-    }
+    //public void OnMove(InputAction.CallbackContext context)
+    //{
+    //    Vector2 move = context.ReadValue<Vector2>();
+    //    h = move.x;
+    //}
 
 
     private void FixedUpdate()
@@ -30,8 +30,10 @@ public class UserControl : MonoBehaviour
         character.Move(h);
     }
 
+
     private void Update()
     {
+        h = Input.GetAxis("Horizontal");
         anim.SetFloat("h", Mathf.Abs(h));
     }
 }
